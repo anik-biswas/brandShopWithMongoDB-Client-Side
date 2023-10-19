@@ -1,44 +1,61 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AddMobile = () => {
 
+    const [brands,setBrand] = useState([]);
+    useEffect ( () => {
+        fetch('http://localhost:5000/brand')
+        .then (res => res.json())
+        .then(data =>setBrand(data))
+        
+    },[])
+    // //console.log(brands);
+    // brands.map(brand =>{
+    //     console.log(brand.name)
+    // })
     const handleAddMobile = event => {
         event.preventDefault();
 
         const form = event.target;
-
+        const selectElement = document.getElementById("brandSelect");
+        
         const name = form.name.value;
-        const quantity = form.quantity.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
+        const bName = selectElement.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
         const category = form.category.value;
-        const details = form.details.value;
-        const photo = form.photo.value;
+        const description = form.description.value;
+        const pImage = form.pImage.value;
 
-        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
+        const newProduct = { name, bName,price,rating,category,description,pImage }
 
-        console.log(newCoffee);
+        console.log(newProduct);
 
-        // send data to the server
-        fetch('http://localhost:5000/coffee', {
+        // // send data to the server
+        fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newProduct)
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if(data.insertedId){
-                    // Swal.fire({
-                    //     title: 'Success!',
-                    //     text: 'Coffee Added Successfully',
-                    //     icon: 'success',
-                    //     confirmButtonText: 'Cool'
-                    //   })
-                }
-            })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         if(data.insertedId){
+        //             // Swal.fire({
+        //             //     title: 'Success!',
+        //             //     text: 'Coffee Added Successfully',
+        //             //     icon: 'success',
+        //             //     confirmButtonText: 'Cool'
+        //             //   })
+        //         }
+        //     })
     }
 
     return (
@@ -46,64 +63,72 @@ const AddMobile = () => {
             <div className="bg-[#CBE4E9] p-24">
             <div className=" grid grid-cols-2 ">
             <h2 className="text-3xl font-extrabold">Add a Mobile</h2>
-            <p className="text-right">You don't Brand ?  <Link to="/addBrand" className="label-text-alt link link-hover text-lg text-orange-600">Add Brand</Link></p>
+            <p className="text-right">Make Your Own brand ?  <Link to="/addBrand" className="label-text-alt link link-hover text-lg text-orange-600">Add Brand</Link></p>
             </div>
             <form onSubmit={handleAddMobile}>
                
-                {/* form name and quantity row */}
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Coffee Name</span>
+                            <span className="label-text">Product Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="Product Name" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Available Quantity</span>
+                            <span className="label-text">Brand Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
+                        <select className="select   input input-bordered w-full" id="brandSelect" required>
+                           
+                        {brands.map((brand, index) => (
+                                <option key={index}   value={brand.name}>
+                                    {brand.name}
+                                </option>
+                                ))}
+                            
+                         </select>
                         </label>
                     </div>
                 </div>
-                {/* form supplier row */}
+               
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Supplier Name</span>
+                            <span className="label-text">Price</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="supplier" placeholder="Supplier Name" className="input input-bordered w-full" />
+                            <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Taste</span>
+                            <span className="label-text">Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="taste" placeholder="Taste" className="input input-bordered w-full" />
+                            <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
-                {/* form category and details row */}
+               
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Category</span>
+                            <span className="label-text">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                            <input type="text" name="rating" placeholder="Rating 0 to 5"  min="0"
+                           max="5" className="input input-bordered w-full" required/>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Details</span>
+                            <span className="label-text">Types Of Product</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                            <input type="text" name="category" placeholder="Computer/Mobile/electronics" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -114,7 +139,7 @@ const AddMobile = () => {
                             <span className="label-text">Photo URL</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
+                            <input type="text" name="pImage" placeholder="Photo URL" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>

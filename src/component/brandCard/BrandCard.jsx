@@ -7,11 +7,12 @@ const BrandCard = () => {
     const [brands, setBrand] = useState(loadedBrands);
     console.log(brands.length);
     return (
-        <div>
-            {
-               // brands.map(brand =><Card key={brand._id} brand={brand}></Card>)
-            }
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 justify-items-center  mt-10">
+        {
+            
+            brands.map(brand => <Card brand={brand} key={brand._id}></Card>)
+        }
+    </div>
     );
 };
 

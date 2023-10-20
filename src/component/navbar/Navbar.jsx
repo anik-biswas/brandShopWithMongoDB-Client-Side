@@ -8,7 +8,7 @@ const Navbar = ({name}) => {
     const{user,logout}= useContext(AuthContext);
     const navigate =useNavigate();
     const location = useLocation();
-    console.log(name);
+   // const email = user.email;
     const handleSignOut =() =>{
           logout()
           .then(result=>{
@@ -24,13 +24,13 @@ const Navbar = ({name}) => {
                 const  links = <>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block" ><NavLink to="/"  >Home</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/AddMobile">Add Product</NavLink></li>
-                <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/about">My Cart</NavLink></li>
+                <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to={`/cart`}>My Cart</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/user">Users</NavLink></li>
             </>
          const  linksTab = <>
                  <li className="mr-5 " ><NavLink to="/"  >Home</NavLink></li>
                  <li className="mr-5 "><NavLink to="/addMobile">Add Product</NavLink></li>
-                 <li className="mr-5 "><NavLink to="/about">My Cart</NavLink></li>
+                 <li className="mr-5 "><NavLink to={`/cart`}>My Cart</NavLink></li>
                  <li className="mr-5 "><NavLink to="/user">Users</NavLink></li>
              </>
     return (

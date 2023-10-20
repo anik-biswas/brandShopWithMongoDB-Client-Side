@@ -19,6 +19,7 @@ import PivateRoute from './component/PivateRoute';
 import UpdateProduct from './component/updateProduct/UpdateProduct';
 import Users from './component/user/Users';
 import ProductDetails from './component/productDetails/ProductDetails';
+import CartList from './component/cartList/CartList';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,16 @@ const router = createBrowserRouter([
         path: "updateProduct/:id",
         element: <PivateRoute><UpdateProduct></UpdateProduct></PivateRoute>,
         loader : ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
+      },
+      // {
+      //   path: "cart/:email",
+      //   element: <PivateRoute><CartList></CartList></PivateRoute>,
+      //   loader : ({params}) => fetch(`http://localhost:5000/cart/${params.email}`),
+      // },
+      {
+        path: "cart",
+        element: <PivateRoute><CartList></CartList></PivateRoute>,
+        loader : () => fetch(`http://localhost:5000/cart`),
       },
       {
         path: "productDetails/:id",

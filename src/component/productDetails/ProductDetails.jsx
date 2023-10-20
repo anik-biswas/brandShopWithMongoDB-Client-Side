@@ -1,19 +1,59 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../firebase/AuthProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const product = useLoaderData() ;
+    const{user}= useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+        const email =user.email;
+  
     console.log(product)
     const {_id, name, bName,price,rating,category,description,pImage } = product;
-    const [brands,setBrand] = useState([]);
-    useEffect ( () => {
-        fetch('http://localhost:5000/brand')
-        .then (res => res.json())
-        .then(data =>setBrand(data))
+    
+    const handleCart = event => {
+        event.preventDefault();
+
+        const newCart = { email, name, bName,price,rating,category,description,pImage }
+
+        console.log(newCart);
+
+        // // send data to the server
+        fetch('http://localhost:5000/cart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCart)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
         
-    },[])
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Cart update Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+                
+          })
+          .catch( error=>{
+            console.error(error);
+            toast.error('Product does not add.');
+        })
+    }
+
     return (
         <div>
             <div className="card lg:card-side bg-lime-100 shadow-xl">
@@ -26,7 +66,7 @@ const ProductDetails = () => {
                     <h2 className="card-title">Rating : {rating}</h2>
                     <p>{description}</p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Add to Cart</button>
+                    <button onClick={handleCart} className="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                     

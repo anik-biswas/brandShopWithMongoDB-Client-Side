@@ -15,8 +15,9 @@ const BrandDetails = () => {
         
     // },[bName])
     const [products, setProducts] = useState([]);
+    
     const [filteredProducts, setFilteredProducts] = useState([]);
-
+    
     useEffect(() => {
         fetch('http://localhost:5000/product')
             .then((res) => res.json())
@@ -31,8 +32,8 @@ const BrandDetails = () => {
         setFilteredProducts(filtered);
     };
 
-    console.log(filteredProducts);
-
+   // console.log(filteredProducts);
+   
     return (
         <div>
             <div className="carousel w-full h-96 ">
@@ -68,7 +69,7 @@ const BrandDetails = () => {
                 filteredProducts.length > 0 ? (
                     filteredProducts.map(product => (
                         
-                        <ImageCard product={product} key={product._id} />
+                        <ImageCard product={product} filteredProducts={filteredProducts} setFilteredProducts={setFilteredProducts} key={product._id} />
                     ))
                 ) : (
                     <NoProduct></NoProduct>

@@ -1,11 +1,45 @@
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
+const ImageCard = ({product,filteredProducts, setFilteredProducts}) => {
+    const { _id,name, bName,price,rating,category,description,pImage }= product;
+    const handleDelete = _id => {
+       // console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Delete Product won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-const ImageCard = ({product}) => {
-    const { name, bName,price,rating,category,description,pImage }= product;
+                fetch(`http://localhost:5000/product/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Coffee has been deleted.',
+                                'success'
+                            )
+                            const remaining = filteredProducts.filter(prod => prod._id !== _id);
+                             setFilteredProducts(remaining);
+                    
+                        }
+                    })
+
+            }
+        })
+    }
     return (
-        <div className="card card-side bg-cyan-100 shadow-xl">
+        <div className="card card-side w-80 md:w-full lg:w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 bg-cyan-100 shadow-xl">
             <figure><img src={pImage} alt="Movie" /></figure>
-            <div className="flex justify-between w-full px-4 py-5">
+            <div className=" flex justify-between w-full px-4 py-5">
                 <div className="space-y-2">
                     <h2 className="card-title">Name: {name}</h2>
                     <p className="text-orange-500 text-lg font-semibold">{bName}</p>
@@ -22,9 +56,7 @@ const ImageCard = ({product}) => {
                         <Link >
                         <button className="btn w-20 bg-red-300">Edit</button>
                         </Link>
-                        <button
-                           
-                            className="btn w-20 bg-orange-500">X</button>
+                        <button onClick={() => handleDelete(_id)} className="btn w-20 bg-orange-500">X</button>
                     </div>
                 </div>
             </div>

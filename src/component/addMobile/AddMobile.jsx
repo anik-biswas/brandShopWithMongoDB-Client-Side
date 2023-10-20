@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 const AddMobile = () => {
-
+    const location= useLocation();
+    const navigate= useNavigate();
     const [brands,setBrand] = useState([]);
     useEffect ( () => {
         fetch('http://localhost:5000/brand')
@@ -43,19 +44,20 @@ const AddMobile = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-        })
+        
         //     .then(res => res.json())
         //     .then(data => {
         //         console.log(data);
-        //         if(data.insertedId){
-        //             // Swal.fire({
-        //             //     title: 'Success!',
-        //             //     text: 'Coffee Added Successfully',
-        //             //     icon: 'success',
-        //             //     confirmButtonText: 'Cool'
-        //             //   })
-        //         }
-        //     })
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+                navigate(location?.state ? location.state : '/');
+          })
     }
 
     return (
@@ -143,7 +145,7 @@ const AddMobile = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Coffee" className="btn btn-block" />
+                <input type="submit" value="Add Product" className="btn btn-block" />
 
             </form>
         </div>

@@ -14,6 +14,8 @@ import Home from './component/home/Home';
 import AuthProvider from './firebase/AuthProvider';
 import AddMobile from './component/addMobile/AddMobile';
 import AddBrand from './component/addBrand/AddBrand';
+import BrandDetails from './component/brandDetails/BrandDetails';
+import PivateRoute from './component/PivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,16 @@ const router = createBrowserRouter([
       },
       {
         path: "addMobile",
-        element: <AddMobile></AddMobile>,
+        element: <PivateRoute><AddMobile></AddMobile></PivateRoute>,
+      },
+      {
+        path: "/brand/:id",
+        element: <PivateRoute><BrandDetails></BrandDetails></PivateRoute>,
+        loader : ({params}) => fetch(`http://localhost:5000/brand/${params.id}`),
       },
       {
         path: "addBrand",
-        element: <AddBrand></AddBrand>,
+        element: <PivateRoute><AddBrand></AddBrand></PivateRoute>,
       },
       
       {

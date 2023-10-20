@@ -1,5 +1,8 @@
-
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 const AddBrand = () => {
+    const location= useLocation();
+    const navigate= useNavigate();
  const handleAddBrand = e =>{
     e.preventDefault();
     const form = e.target;
@@ -23,6 +26,15 @@ const AddBrand = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Brand Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+            }
+            navigate(location?.state ? location.state : '/');
         })
 
  }

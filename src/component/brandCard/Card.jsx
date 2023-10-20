@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Card = ({brand}) => {
-    const {name,bImage}=brand;
+    const {_id,name,bImage}=brand;
     
     return (
         <div>
@@ -12,7 +12,7 @@ const Card = ({brand}) => {
             
             <div className="card-actions justify-end">
             
-            <Link to={`/brand}`}><button className="btn btn-primary bg-red-500 border-none">Details</button></Link>
+            <Link  to={`/brand/${_id}`}><button className="btn btn-primary bg-red-500 border-none">Details</button></Link>
             </div>
             </div>
             </div>

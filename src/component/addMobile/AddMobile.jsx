@@ -64,7 +64,7 @@ const AddMobile = () => {
         <div>
             <div className="bg-[#CBE4E9] p-24">
             <div className=" grid grid-cols-2 ">
-            <h2 className="text-3xl font-extrabold">Add a Mobile</h2>
+            <h2 className="text-3xl font-extrabold">Add Product</h2>
             <p className="text-right">Make Your Own brand ?  <Link to="/addBrand" className="label-text-alt link link-hover text-lg text-orange-600">Add Brand</Link></p>
             </div>
             <form onSubmit={handleAddMobile}>

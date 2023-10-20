@@ -53,9 +53,7 @@ const ImageCard = ({product,filteredProducts, setFilteredProducts}) => {
                 <div className="card-actions justify-end">
                     <div className="btn-group btn-group-vertical space-y-4">
                         <button className="btn w-20 bg-slate-200">View</button>
-                        <Link >
-                        <button className="btn w-20 bg-red-300">Edit</button>
-                        </Link>
+                        <Link  to={`/updateProduct/${_id}`}><button className="btn w-20 bg-red-300">Edit</button></Link>
                         <button onClick={() => handleDelete(_id)} className="btn w-20 bg-orange-500">X</button>
                     </div>
                 </div>

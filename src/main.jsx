@@ -16,6 +16,7 @@ import AddMobile from './component/addMobile/AddMobile';
 import AddBrand from './component/addBrand/AddBrand';
 import BrandDetails from './component/brandDetails/BrandDetails';
 import PivateRoute from './component/PivateRoute';
+import UpdateProduct from './component/updateProduct/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "addMobile",
         element: <PivateRoute><AddMobile></AddMobile></PivateRoute>,
+      },
+      {
+        path: "updateProduct/:id",
+        element: <PivateRoute><UpdateProduct></UpdateProduct></PivateRoute>,
+        loader : ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/brand/:id",

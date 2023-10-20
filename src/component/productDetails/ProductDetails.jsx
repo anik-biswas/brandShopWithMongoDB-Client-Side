@@ -24,7 +24,7 @@ const ProductDetails = () => {
         console.log(newCart);
 
         // // send data to the server
-        fetch('http://localhost:5000/cart', {
+        fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const UpdateProduct = () => {
     const {_id, name, bName,price,rating,category,description,pImage } = product;
     const [brands,setBrand] = useState([]);
     useEffect ( () => {
-        fetch('http://localhost:5000/brand')
+        fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/brand')
         .then (res => res.json())
         .then(data =>setBrand(data))
         
@@ -34,7 +34,7 @@ const UpdateProduct = () => {
 
         //console.log(newProduct);
 
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

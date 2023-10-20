@@ -18,7 +18,7 @@ const CartList = () => {
             const [filterCarts, setFilteredCart] = useState([]);
                 
             useEffect(() => {
-                fetch('http://localhost:5000/cart')
+                fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/cart')
                     .then((res) => res.json())
                     .then((data) => {
                         setCarts(data);
@@ -50,7 +50,7 @@ const CartList = () => {
                 }).then((result) => {
                     if (result.isConfirmed) {
         
-                        fetch(`http://localhost:5000/cart/${id}`, {
+                        fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/cart/${id}`, {
                             method: 'DELETE'
                         })
                             .then(res => res.json())

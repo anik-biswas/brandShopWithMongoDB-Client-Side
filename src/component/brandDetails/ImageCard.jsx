@@ -15,7 +15,7 @@ const ImageCard = ({product,filteredProducts, setFilteredProducts}) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/product/${_id}`, {
+                fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/product/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

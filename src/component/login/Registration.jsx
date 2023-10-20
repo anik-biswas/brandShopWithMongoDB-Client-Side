@@ -31,10 +31,28 @@ const Registration = () => {
             signUp(email,password)
             .then(result=>{
                 console.log(result.user);
-                console.log('Name:', name);
+                
+                const createdAt = result.user?.metadata?.creationTime;
+                const user = { email,name,image, createdAt: createdAt };
+               
+                // using fetch
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            toast.success('Register & Database saved successful!'); 
+                        }
+                    })
+
                 navigate(location?.state ? location.state : '/',{state: {name}});
                 // navigate('/', { state: { name } });
-                toast.success('Register successful!'); 
+                //toast.success('Register successful!'); 
                 //console.log(name,email,image,password);
             })
             .catch(error=>{

@@ -25,11 +25,13 @@ const Navbar = ({name}) => {
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block" ><NavLink to="/"  >Home</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/AddMobile">Add Product</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/about">My Cart</NavLink></li>
+                <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/user">Users</NavLink></li>
             </>
          const  linksTab = <>
                  <li className="mr-5 " ><NavLink to="/"  >Home</NavLink></li>
                  <li className="mr-5 "><NavLink to="/addMobile">Add Product</NavLink></li>
                  <li className="mr-5 "><NavLink to="/about">My Cart</NavLink></li>
+                 <li className="mr-5 "><NavLink to="/user">Users</NavLink></li>
              </>
     return (
         <div>

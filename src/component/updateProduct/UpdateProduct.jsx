@@ -10,7 +10,7 @@ const UpdateProduct = () => {
     const {_id, name, bName,price,rating,category,description,pImage } = product;
     const [brands,setBrand] = useState([]);
     useEffect ( () => {
-        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand')
+        fetch('https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/brand')
         .then (res => res.json())
         .then(data =>setBrand(data))
         
@@ -34,7 +34,7 @@ const UpdateProduct = () => {
 
         //console.log(newProduct);
 
-        fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/product/${_id}`, {
+        fetch(`https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -144,7 +144,7 @@ const UpdateProduct = () => {
                     </label>
                 </div>
             </div>
-            <input type="submit" value="Add Product" className="btn btn-block" />
+            <input type="submit" value="Update Product" className="btn btn-block" />
 
         </form>
     </div>

@@ -1,8 +1,16 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live link
+https://mobilestore-490b9.web.app
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Feature 
+- In home page i include a navbar ,banner ,Brand ,footer
+- Also two extra sections are special  and  super sell section added
+- In Brand has a dynamic button as details
+-This details button load data from database but this route is protected
+-Also added register and login 
+-Expect home page ,all page are protected
+-Also added Google Authentication and email password Authentication 
+- Add to Cart add to database
+
+

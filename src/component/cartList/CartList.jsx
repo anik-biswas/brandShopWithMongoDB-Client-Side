@@ -18,7 +18,7 @@ const CartList = () => {
             const [filterCarts, setFilteredCart] = useState([]);
                 
             useEffect(() => {
-                fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/cart')
+                fetch('https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/cart')
                     .then((res) => res.json())
                     .then((data) => {
                         setCarts(data);
@@ -50,7 +50,7 @@ const CartList = () => {
                 }).then((result) => {
                     if (result.isConfirmed) {
         
-                        fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/cart/${id}`, {
+                        fetch(`https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/cart/${id}`, {
                             method: 'DELETE'
                         })
                             .then(res => res.json())
@@ -82,12 +82,12 @@ const CartList = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>image</th>
-                            <th>Brand Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Action</th>
+                            <th className="text-red-400">Name</th>
+                            <th className="text-red-400">image</th>
+                            <th className="text-red-400">Brand Name</th>
+                            <th className="text-red-400">Category</th>
+                            <th className="text-red-400">Price</th>
+                            <th className="text-red-400">Action</th>
                         </tr>
                     </thead>
                     <tbody>

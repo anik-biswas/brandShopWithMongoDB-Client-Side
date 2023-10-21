@@ -1,14 +1,35 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../firebase/AuthProvider";
 import { toast } from "react-toastify";
+import ToggleTheme from "../../ToogleTheame";
 
-const Navbar = ({name}) => {
+const Navbar = () => {
 
     const{user,logout}= useContext(AuthContext);
     const navigate =useNavigate();
     const location = useLocation();
-   // const email = user.email;
+    
+    // const email = user.email;
+      //console.log(name)
+
+    // const [users, setUsers] = useState([]);
+    // const [filterUsers, setFilterUsers] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/user')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setUsers(data);
+    //             filteredUsers(data, email);
+    //         });
+    // }, [email]);
+    // const filteredUsers= (users, email) => {
+    //     const filtered = users.filter((logged) => logged.email === email);
+    //     setFilterUsers(filtered);
+    // };
+
+    // console.log(filterUsers)
     const handleSignOut =() =>{
           logout()
           .then(result=>{
@@ -26,16 +47,18 @@ const Navbar = ({name}) => {
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/AddMobile">Add Product</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to={`/cart`}>My Cart</NavLink></li>
                 <li className="mr-5 text-lg font-medium hidden md:block lg:block"><NavLink to="/user">Users</NavLink></li>
+                <li className="mr-5 text-lg font-medium hidden md:block lg:block"><ToggleTheme /></li>
             </>
          const  linksTab = <>
                  <li className="mr-5 " ><NavLink to="/"  >Home</NavLink></li>
                  <li className="mr-5 "><NavLink to="/addMobile">Add Product</NavLink></li>
                  <li className="mr-5 "><NavLink to={`/cart`}>My Cart</NavLink></li>
                  <li className="mr-5 "><NavLink to="/user">Users</NavLink></li>
+                 <li className="mr-5 "><ToggleTheme /></li>
              </>
     return (
         <div>
-            <div className="navbar bg-base-100 rounded-lg">
+            <div className="navbar bg-base-100 rounded-lg p-0 md:p-2">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,7 +71,7 @@ const Navbar = ({name}) => {
                     </ul>
                     </div>
                     <img className="w-20 h-20" src="https://i.ibb.co/WtsvjMw/pngtree-mobile-phone-shop-logo-png-image-5430156.jpg" alt="" />
-                    <a className="btn btn-ghost normal-case text-xl">Mobile Store</a>
+                    <a className="btn btn-ghost normal-case text-xl hidden md:block lg:block">Mobile Store</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -78,10 +101,14 @@ const Navbar = ({name}) => {
                     {user?
                                  <div className="flex">
                                  {/* <a className="btn w-10">{user.displayName?user.displayName :user.email}</a> */}
-                                 {name && <a className="btn w-10">{name}</a>}
-                                 <a onClick={handleSignOut} className="btn ">  SignOut</a></div>
+                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                 <div className="w-10 rounded-full">
+                                 <img src="https://i.ibb.co/MMBcWdv/download.png" />
+                                 </div>
+                                  </label>
+                                 <a onClick={handleSignOut} className="btn  w-16 text-xs ">  SignOut</a></div>
                                  :
-                                 <Link to={"/login"}><a className="btn">Login</a></Link> 
+                                 <Link to={"/login"}><a className="btn ">Login</a></Link> 
                     }
                      </div>
 

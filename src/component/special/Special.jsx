@@ -5,7 +5,7 @@ const Special = () => {
         <div>
         <h2 className="text-5xl my-10 text-orange-600 text-center">Special Offer</h2>
         <div className="grid p-10 grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
-        <div className="card w-64 md:w-80 bg-amber-100 shadow-xl">
+        <div className="card w-64 md:w-72  lg:w-72 bg-amber-100 shadow-xl">
          <div className="card-body">
          <p>I invite these Store to Get Your Surprise </p>
        <div className="card-actions justify-start">
@@ -20,7 +20,7 @@ const Special = () => {
        </div>
        </div>
        </div>
-        <div className="card w-64 md:w-80 bg-red-100 shadow-xl">
+        <div className="card w-64 md:w-72  lg:w-72 bg-red-100 shadow-xl">
          <div className="card-body">
          <p>I invite these Store to Get Your Surprise</p>
        <div className="card-actions justify-start">
@@ -35,7 +35,7 @@ const Special = () => {
        </div>
        </div>
        </div>
-        <div className="card w-64 md:w-80 bg-lime-100 shadow-xl">
+        <div className="card w-64 md:w-72  lg:w-72 bg-lime-100 shadow-xl">
          <div className="card-body">
          <p>I invite these Store to Get Your Surprise</p>
        <div className="card-actions justify-start">

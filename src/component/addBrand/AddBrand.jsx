@@ -16,7 +16,7 @@ const AddBrand = () => {
         const newBrand = { name, bImage,image1,image2,image3}
 
         console.log(newBrand);
-        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand',{
+        fetch('https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/brand',{
             method: 'POST',
             headers : {
                 'content-type':'application/json'
@@ -46,7 +46,7 @@ const AddBrand = () => {
                     <div className="text-center ">
                         <h1 className="text-xl md:text-2xl lg:text-5xl font-bold">New Brand</h1>
                     </div>
-                    <div className="card flex-shrink-0  w-60 md:w-full  shadow-2xl bg-[#50e6da]">
+                    <div className="card flex-shrink-0  w-60 md:w-80 lg:w-96  shadow-2xl bg-[#50e6da]">
                         <form  onSubmit={handleAddBrand} className="card-body ">
                              <div className="form-control">
                             

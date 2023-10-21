@@ -19,7 +19,7 @@ const Users = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/user/${id}`, {
+                fetch(`https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/user/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -45,22 +45,24 @@ const Users = () => {
         <div>
             <h2 className="font-bold text-xl text-center">User List</h2>
             <div className="overflow-x-auto justify-center items-center text-center px-5 md:px-10 lg:px-20">
-                <table className="table ">
+                <table className="table text-center ">
                     {/* head */}
-                    <thead>
+                    <thead >
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Created At</th>
-                            <th>Action</th>
+                            <th className="text-red-400">Name</th>
+                            <th className="text-red-400">Image</th>
+                            <th className="text-red-400">Email</th>
+                            <th className="text-red-400">Created At</th>
+                            <th className="text-red-400">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="text-center">
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index+1}</th>
                                 <th>{user.name}</th>
+                                <th><img src={user.image}  className="w-10 md:w-16  h-10 md:h-16" alt="" /></th>
                                 <td>{user.email}</td>
                                 <td>{user.createdAt}</td>
                                 <td>{user.lastLoggedAt}</td>

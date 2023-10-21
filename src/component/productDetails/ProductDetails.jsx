@@ -24,7 +24,7 @@ const ProductDetails = () => {
         console.log(newCart);
 
         // // send data to the server
-        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/cart', {
+        fetch('https://server-management-37uu8jgqf-anik-biswas-projects.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="card lg:card-side bg-lime-100 shadow-xl">
+            <div className="card lg:card-side bg-lime-100 my-5 shadow-xl">
                 <figure><img src={pImage} alt="Album"/></figure>
                 <div className="card-body">
                     <h2 className="card-title text-slate-500">{name}</h2>

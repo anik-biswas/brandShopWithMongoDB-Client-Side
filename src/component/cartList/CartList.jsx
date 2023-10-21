@@ -75,7 +75,7 @@ const CartList = () => {
     return (
         <div>
             <div>
-            <h2 className="font-bold text-xl text-center">User List</h2>
+            <h2 className="font-bold text-xl text-center">Cart List</h2>
             <div className="overflow-x-auto justify-center items-center text-center px-5 md:px-10 lg:px-20">
                 <table className="table ">
                     {/* head */}
@@ -94,8 +94,8 @@ const CartList = () => {
                         {
                             filterCarts.map((cart, index) => <tr key={user._id}>
                                 <th>{index+1}</th>
-                                <th>{cart.name}</th>
-                                <th><img src={cart.pImage}  className="w-16 h-16" alt="" /></th>
+                                <th className="text-xs">{cart.name}</th>
+                                <th><img src={cart.pImage}  className="w-10 md:w-16  h-10 md:h-16" alt="" /></th>
                                 <td>{cart.bName}</td>
                                 <td>{cart.category}</td>
                                 <td>{cart.price}</td>

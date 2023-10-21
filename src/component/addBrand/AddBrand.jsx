@@ -44,42 +44,42 @@ const AddBrand = () => {
             <div className="hero min-h-screen bg-[#CBE4E9] ">
                 <div className="hero-content flex-col ">
                     <div className="text-center ">
-                        <h1 className="text-5xl font-bold">New Brand</h1>
+                        <h1 className="text-xl md:text-2xl lg:text-5xl font-bold">New Brand</h1>
                     </div>
-                    <div className="card flex-shrink-0 w-96  shadow-2xl bg-[#50e6da]">
+                    <div className="card flex-shrink-0  w-60 md:w-full  shadow-2xl bg-[#50e6da]">
                         <form  onSubmit={handleAddBrand} className="card-body ">
                              <div className="form-control">
                             
                                 <label className="label">
-                                    <span className="label-text font-bold text-slate-600 text-xl">Brand Name</span>
+                                    <span className="label-text font-bold text-slate-600  text-base md:text-xl">Brand Name</span>
                                 </label>
                                 <input  type="text"  placeholder="Full name" className="input input-bordered" name='name' required/>
                             </div> 
                             
                              <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text font-bold text-slate-600 text-xl">Banner Image</span>
+                                    <span className="label-text font-bold text-slate-600 text-base md:text-xl">Banner Image</span>
                                 </label>
                                 <input type="text"  placeholder="image url" className="input input-bordered" name='bImage'  required />
                             </div> 
                             <label className="label">
-                                    <span className="label-text font-bold text-purple-900 text-xl">Add Poster Images</span>
+                                    <span className="label-text font-bold text-purple-900 text-base md:text-xl">Add Poster Images</span>
                                 </label>
                              <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text font-bold text-slate-600  text-xl">Slider Image 1</span>
+                                    <span className="label-text font-bold text-slate-600 text-base md:text-xl">Slider Image 1</span>
                                 </label>
                                 <input type="text"  placeholder="image url" className="input input-bordered" name='image1'  required />
                             </div> 
                              <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text font-bold text-slate-600  text-xl">Slider Image 2</span>
+                                    <span className="label-text font-bold text-slate-600  text-base md:text-xl">Slider Image 2</span>
                                 </label>
                                 <input type="text"  placeholder="image url" className="input input-bordered" name='image2'  required />
                             </div> 
                              <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text font-bold text-slate-600  text-xl">Slider Image 3</span>
+                                    <span className="label-text font-bold text-slate-600  text-base md:text-xl">Slider Image 3</span>
                                 </label>
                                 <input type="text"  placeholder="image url" className="input input-bordered" name='image3'  required />
                             </div> 

@@ -44,13 +44,13 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-[#CBE4E9]">
                 <div className="hero-content flex-col ">
                     <div className="text-center ">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-xl md:text-2xl lg:text-5xl font-bold">Login now!</h1>
                         
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-60 md:w-full bg-[#50e6da] max-w-sm shadow-2xl ">
                         <form  onSubmit={handleLogin} className="card-body">
                             <p>{error}</p>
                             <div className="form-control">

@@ -11,7 +11,7 @@ const ImageCard = ({product,filteredProducts, setFilteredProducts}) => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, delete !'
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -24,7 +24,7 @@ const ImageCard = ({product,filteredProducts, setFilteredProducts}) => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your Coffee has been deleted.',
+                                'Your Product has been deleted.',
                                 'success'
                             )
                             const remaining = filteredProducts.filter(prod => prod._id !== _id);

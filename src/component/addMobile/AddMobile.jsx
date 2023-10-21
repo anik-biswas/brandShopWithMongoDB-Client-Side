@@ -6,7 +6,7 @@ const AddMobile = () => {
     const navigate= useNavigate();
     const [brands,setBrand] = useState([]);
     useEffect ( () => {
-        fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/brand')
+        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand')
         .then (res => res.json())
         .then(data =>setBrand(data))
         
@@ -34,7 +34,7 @@ const AddMobile = () => {
         console.log(newProduct);
 
         // // send data to the server
-        fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/product', {
+        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

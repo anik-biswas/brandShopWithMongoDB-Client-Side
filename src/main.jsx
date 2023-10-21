@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader : () =>fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/brand')
+        loader : () =>fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand')
       },
       {
         path: "addMobile",
@@ -39,32 +39,32 @@ const router = createBrowserRouter([
       {
         path: "user",
         element: <PivateRoute><Users></Users></PivateRoute>,
-        loader: () => fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/user')
+        loader: () => fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/user')
       },
       {
         path: "updateProduct/:id",
         element: <PivateRoute><UpdateProduct></UpdateProduct></PivateRoute>,
-        loader : ({params}) => fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/product/${params.id}`),
+        loader : ({params}) => fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/product/${params.id}`),
       },
       // {
       //   path: "cart/:email",
       //   element: <PivateRoute><CartList></CartList></PivateRoute>,
-      //   loader : ({params}) => fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/cart/${params.email}`),
+      //   loader : ({params}) => fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/cart/${params.email}`),
       // },
       {
         path: "cart",
         element: <PivateRoute><CartList></CartList></PivateRoute>,
-        loader : () => fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/cart`),
+        loader : () => fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/cart`),
       },
       {
         path: "productDetails/:id",
         element: <PivateRoute><ProductDetails></ProductDetails></PivateRoute>,
-        loader : ({params}) => fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/product/${params.id}`),
+        loader : ({params}) => fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/product/${params.id}`),
       },
       {
         path: "/brand/:id",
         element: <PivateRoute><BrandDetails></BrandDetails></PivateRoute>,
-        loader : ({params}) => fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/brand/${params.id}`),
+        loader : ({params}) => fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand/${params.id}`),
       },
       {
         path: "addBrand",

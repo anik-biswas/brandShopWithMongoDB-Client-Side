@@ -36,7 +36,7 @@ const Registration = () => {
                 const user = { email,name,image, createdAt: createdAt };
                
                 // using fetch
-                fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/user', {
+                fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

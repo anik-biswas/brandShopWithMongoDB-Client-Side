@@ -16,7 +16,7 @@ const AddBrand = () => {
         const newBrand = { name, bImage,image1,image2,image3}
 
         console.log(newBrand);
-        fetch('https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/brand',{
+        fetch('https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/brand',{
             method: 'POST',
             headers : {
                 'content-type':'application/json'

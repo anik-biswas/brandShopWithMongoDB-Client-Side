@@ -19,7 +19,7 @@ const Users = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://server-management-ihlospi5u-anik-biswas-projects.vercel.app/user/${id}`, {
+                fetch(`https://server-management-dx4fsl1j9-anik-biswas-projects.vercel.app/user/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

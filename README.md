@@ -14,3 +14,9 @@ https://mobilestore-490b9.web.app
 - Add to Cart add to database
 
 
+## Technologies Used
+
+- **Frontend:** HTML, CSS,Tailwind,react
+- **Backend:** Express,MongoDB
+
+
